@@ -59,18 +59,19 @@ class Main {
 	public static void main(String args[]) throws IOException{
 		String tmp = "";
 		Scanner sc = new Scanner(System.in);
-		int sharps = 0;
+		int sharpCount = 0;
 		while(sc.hasNext()){
 			String token = sc.next();
 			tmp += token + " ";
-			if(token.equals("#")) sharps += 1;
-			if(sharps == 2){
+			if(token.equals("#")) sharpCount += 1;
+			if(sharpCount == 2){
 				String s1 = tmp.split("#")[0].trim();
 				String s2 = tmp.split("#")[1].trim();
 				System.out.println(getLCS(s1, s2));	
-				sharps = 0;
+				sharpCount = 0;
 				tmp = "";
 			}
-		}		
+		}
+		sc.close();
 	}
 }
